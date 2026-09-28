@@ -6,4 +6,10 @@ readings = [
     {"name": "patio",      "room": "outside", "temp": 29.8, "online": True},
 ]
 
-print(readings[0])
+
+def list_devices(devices):
+    for device in devices:
+        print(device["name"], device["temp"])
+
+
+list_devices(readings)
