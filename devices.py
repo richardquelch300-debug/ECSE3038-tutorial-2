@@ -15,14 +15,16 @@ def list_devices(devices):
 list_devices(readings)
 
 
+
 def average_temp(devices):
     total = 0
     for device in devices:
         total += device["temp"]
     return total / len(devices)
 
-
 print(average_temp(readings))
+
+
 
 def hottest(devices):
     best = devices[0]
@@ -31,5 +33,15 @@ def hottest(devices):
             best = device
     return best
 
-
 print(hottest(readings))
+
+
+
+def to_status(device):
+    return {
+        "device": device["name"],
+        "status": "ok" if device["online"] else "offline",
+        "celsius": device["temp"],
+    }
+
+print(to_status(readings[3]))
